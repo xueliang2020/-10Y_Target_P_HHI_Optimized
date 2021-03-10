@@ -1,0 +1,22 @@
+This is based on the version that used for the 2020 Q3 Stress Testing, and used for the life-time ECap proxy model that used for deal pricing.
+
+Base Assumptions:
+1. 15%, 15% percentage for Non-Regional as a cap withint SBL and NSBL respectively
+2. China 10% as a cap withint SBL and NSBL respectively
+3. NSBL has a cap that any individual country share will never be bigger than the max of Sovereign share
+4. All concerntration limits using the DOB to adjust. (including top 1 and top 3 sovereign limits)
+5. Final ECap input EAD will need to be mapped using the EAD from Stress Testing process, applying the country share
+6. Avg rating target is 6.5 and 7.5 respectively
+7. Approved, Pipeline used the same snapshot that same with previous version update
+8. PD and ratings used the same Oct 2020 version, not udpated, no downgrade yet
+
+
+Updated Assumptions & Logics:
+1. 50%, 25%, 25% among the GDP weighted , Approved and Pipeline as the share. (changed from the 1/3, 1/3, 1/3 share)
+2. Previously, we also cap China share with 10% in the first step of GDP model process, now we removed the 10% china cap, only let the algorithm to freely adjust later.
+3. we generated serval results based on the adjustment order, as we realized the order matters, there is no unique solution for the question.
+
+
+
+TODO:
+1. permutation to cover all tthe possible permutations of the adjustments, and get all the possible solutions, and find a most optomized one as the solution
