@@ -762,13 +762,13 @@ class SBLPortfolioBuilder(object):
 
         final_result_df = self.get_optimized_weight_hhi(final_result_df)
         
-        writer = pd.ExcelWriter(temp_output.format(PROJECTION_YEAR, time_stamp), engine='xlsxwriter')
-        final_result_df.to_excel(writer, "Result", index = False)
+        #writer = pd.ExcelWriter(temp_output.format(PROJECTION_YEAR, time_stamp), engine='xlsxwriter')
+        #final_result_df.to_excel(writer, "Result", index = False)
 
-        writer.save()
+        #writer.save()
         #return final_result_df
 
-        sbl_CountryWeights = final_result_df.transpose().to_dict()[1]
+        sbl_CountryWeights = final_result_df.reset_index(drop=True).transpose().to_dict()[0]
         return sbl_CountryWeights
 
 if __name__ == "__main__":
